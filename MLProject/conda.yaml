@@ -6,7 +6,8 @@ dependencies:
   - python=3.8
   - pip
   - pip:
-    - mlflow
-    - scikit-learn
-    - pandas
-    - numpy
+    - mlflow>=2.14.0
+    - scikit-learn>=1.0.0
+    - pandas>=1.0.0
+    - numpy>=1.20.0
+    - joblib>=1.0.0

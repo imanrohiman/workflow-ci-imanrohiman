@@ -1,5 +1,5 @@
 pandas
 numpy
 scikit-learn
+mlflow>=2.15.0,<2.18.0
 joblib
-mlflow==2.19.0
