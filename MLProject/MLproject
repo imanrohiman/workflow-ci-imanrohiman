@@ -1,9 +1,10 @@
-name: titanic-model
+# MLProject
+name: workflow-ci
+
+conda_env: conda.yaml
 
 entry_points:
   main:
     parameters:
-      data_file:
-        type: str
-        default: "../namadataset_preprocessing/titanic_preprocessing.csv"
-    command: "python modelling.py --data_file {data_file}"
+      data_path: {type: str, default: "namadataset_preprocessing/data_clean.csv"}
+    command: "python modelling.py --data_path {data_path}"

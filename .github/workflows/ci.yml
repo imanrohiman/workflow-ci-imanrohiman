@@ -1,4 +1,5 @@
-name: CI Pipeline
+# .github/workflows/ci.yml
+name: CI/CD Pipeline
 
 on:
   push:
@@ -7,21 +8,28 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  test-and-build:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v2
       with:
         python-version: '3.8'
     
     - name: Install dependencies
       run: |
-        pip install -r MLProject/requirements.txt
+        python -m pip install --upgrade pip
+        pip install mlflow scikit-learn pandas numpy joblib
     
     - name: Run MLflow
       run: |
-        mlflow run . -P data_file=namadataset_preprocessing/titanic_preprocessing.csv
+        mlflow run . --env-manager=local
+    
+    - name: Build Docker image
+      run: |
+        docker build -t username/workflow-ci:latest .
+        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        docker push username/workflow-ci:latest
