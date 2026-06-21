@@ -1,0 +1,9 @@
+name: titanic-model
+
+entry_points:
+  main:
+    parameters:
+      data_file:
+        type: str
+        default: "../namadataset_preprocessing/titanic_preprocessing.csv"
+    command: "python modelling.py --data_file {data_file}"
