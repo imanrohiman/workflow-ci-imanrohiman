@@ -15,7 +15,8 @@ def main():
     
     with mlflow.start_run() as run:
         # Load preprocessed data
-        data_path = "namadataset_preprocessing/data_clean.csv"
+        # data_path = "namadataset_preprocessing/data_clean.csv"
+	data_path = os.path.join(os.path.dirname(__file__), "../namadataset_preprocessing/data_clean.csv")
         df = pd.read_csv(data_path)
         
         # Split features and target (sesuaikan dengan dataset Anda)
