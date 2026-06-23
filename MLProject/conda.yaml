@@ -1,13 +1,14 @@
 name: mlflow-env
 channels:
   - conda-forge
-  - defaults
 dependencies:
-  - python=3.8
+  - python=3.9
+  - pandas
+  - numpy
+  - scikit-learn
   - pip
   - pip:
-    - mlflow==2.0.0
-    - scikit-learn==1.0.2
-    - pandas==1.3.5
-    - numpy==1.21.6
-    - joblib==1.1.0
+    - mlflow
+    - joblib
+    - flask
+    - waitress

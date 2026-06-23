@@ -1,10 +1,9 @@
-# MLProject
-name: workflow-ci
+name: mlflow-project
 
 conda_env: conda.yaml
 
 entry_points:
   main:
     parameters:
-      data_path: {type: str, default: "namadataset_preprocessing/titanic.csv"}
-    command: "python modelling.py --data_path {data_path}"
+      model_type: {type: str, default: "random_forest"}
+    command: "python modelling.py"
