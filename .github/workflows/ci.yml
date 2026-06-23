@@ -21,8 +21,8 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install mlflow
+          pip install mlflow pandas numpy scikit-learn seaborn matplotlib joblib
 
       - name: Run MLflow Project
         run: |
-          mlflow run ./MLProject
+          mlflow run ./MLProject --no-conda
