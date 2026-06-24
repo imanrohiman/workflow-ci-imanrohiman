@@ -16,7 +16,7 @@ mlflow.autolog(disable=True)
 
 
 def load_and_preprocess_data():
-    df = pd.read_csv('../namadataset_preprocessing/titanic.csv')
+    df = pd.read_csv('../namadataset_preprocessing/namadataset_preprocessing/titanic.csv')
 
     X = df.drop('Survived', axis=1)
     y = df['Survived']
