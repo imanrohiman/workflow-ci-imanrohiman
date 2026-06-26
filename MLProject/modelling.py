@@ -15,7 +15,7 @@ mlflow.sklearn.autolog()
 
 def load_and_preprocess_data():
     # Load dataset HASIL preprocessing
-    df = pd.read_csv("../preprocessing/titanic_preprocessing.csv")
+    df = pd.read_csv("../preprocessing/namadataset_preprocessing/titanic.csv")
 
     X = df.drop("Survived", axis=1)
     y = df["Survived"]
